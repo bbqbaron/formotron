@@ -9,7 +9,9 @@
     "lodash": "^3.7.0"
   },
   "devDependencies": {},
-  "scripts": {},
+  "scripts": {
+    "test": "./node_modules/beemer/bin/bmr test -w"
+  },
   "author": "Eric Loren",
   "license": "ISC"
 }
