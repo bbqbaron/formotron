@@ -1,0 +1,15 @@
+{
+  "name": "formotron",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "beemer": "0.0.0",
+    "chai": "^2.2.0",
+    "lodash": "^3.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "author": "Eric Loren",
+  "license": "ISC"
+}
