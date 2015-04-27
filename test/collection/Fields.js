@@ -19,11 +19,11 @@ describe('Fields', function() {
 		});
 	});
 
-	describe('validate', function() {
-		it('should return an array of validation results', function() {
-			var M = bmr.Model.extend({validate: function() {return 'foo';}});
-			var F = new Fields([new M(), new M()]);
-			expect(F.validate()).to.deep.equal(['foo', 'foo']);
+	describe('getErrors', function() {
+		it('should return a flattened array of errors', function() {
+			var M = bmr.Model.extend();
+			var F = new Fields([new M({errors: ['foo']}), new M({errors: ['foo']})]);
+			expect(F.getErrors()).to.deep.equal(['foo', 'foo']);
 		});
 	});
 });

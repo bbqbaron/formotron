@@ -20,6 +20,15 @@ describe('Field', function() {
 			master.set('foo', 'baz');
 			expect(field.get('value')).to.equal('baz');
 		});
+
+		it('should re-validate on value changes', function() {
+			var master = new bmr.Model();
+			var field = new Field({master: master, attribute: 'foo', rules: [Required]});
+			field.set('value', 'bar');
+			expect(master.get('foo')).to.equal('bar');
+			master.set('foo', '');
+			expect(field.get('errors').length).to.equal(1);
+		});
 	});
 
 	describe('validate', function() {
