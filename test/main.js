@@ -4,4 +4,5 @@ require('./model/Form');
 require('./util/equate');
 require('./util/rule/Rule');
 require('./util/rule/Required');
-require('./Input');
+require('./view/Form');
+require('./view/widget/Field');
