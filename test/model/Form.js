@@ -1,3 +1,4 @@
+/* jshint expr:true */
 var bmr = require('beemer'),
 	chai = require('chai'),
 	expect = chai.expect,
@@ -41,7 +42,7 @@ describe('Form', function() {
 			f.submit();
 
 			expect(setSpy.calledWith({foo: 'baz'})).to.be.true;
-			expect(saveStub.calledOnce).to.be.true
+			expect(saveStub.calledOnce).to.be.true;
 		});
 
 		it('should do nothing if errors', function() {

@@ -4,5 +4,8 @@ require('./model/Form');
 require('./util/equate');
 require('./util/rule/Rule');
 require('./util/rule/Required');
+require('./view/FieldSet');
 require('./view/Form');
 require('./view/widget/Field');
+require('./view/widget/templates');
+require('./view/widget/Widget');

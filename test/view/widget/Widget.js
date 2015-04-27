@@ -2,10 +2,10 @@
 var bmr = require('beemer'),
 	chai = require('chai'),
 	expect = chai.expect,
-	Field = require('../../../lib/view/widget/Field');
+	Widget = require('../../../lib/view/widget/Widget');
 
-describe('Field', function() {
+describe('Widget', function() {
 	it('should instantiate', function() {
-		expect(new Field({model: new bmr.Model()})).to.be.ok;
+		expect(new Widget({model: new bmr.Model()})).to.be.ok;
 	});
 });

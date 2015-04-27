@@ -1,3 +1,4 @@
+/* jshint expr:true */
 var bmr = require('beemer'),
 	chai = require('chai'),
 	expect = chai.expect,
