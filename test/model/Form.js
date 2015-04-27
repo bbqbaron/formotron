@@ -2,7 +2,8 @@ var bmr = require('beemer'),
 	chai = require('chai'),
 	expect = chai.expect,
 	Form = require('../../lib/model/Form'),
-	sinon = require('sinon');
+	sinon = require('sinon'),
+	Required = require('../../lib/util/rule/Required');
 
 describe('Form', function() {
 	describe('initialize', function() {
@@ -39,11 +40,33 @@ describe('Form', function() {
 
 			f.submit();
 
-			expect(f.get('fields').validate()).to.deep.equal([]);
-			expect(f.validate()).to.deep.equal([]);
-			// expect(setSpy.args[0][0]).to.deep.equal({foo: 'baz'});
-			// expect(setSpy.calledWith({foo: 'baz'})).to.be.true;
-			// expect(saveSpy.calledOnce).to.be.true
+			expect(setSpy.calledWith({foo: 'baz'})).to.be.true;
+			expect(saveStub.calledOnce).to.be.true
+		});
+
+		it('should do nothing if errors', function() {
+			var m = new bmr.Model({
+				foo: 'bar'
+			});
+
+			var f = new Form({
+				original: m,
+				spec: {
+					foo: {
+						rules: [Required]
+					}
+				}
+			});
+
+			f.get('local').set('foo', '');
+
+			var setSpy = sinon.spy(m, 'set');
+			var saveStub = sinon.stub(m, 'save');
+
+			f.submit();
+
+			expect(setSpy.calledOnce).to.be.false;
+			expect(saveStub.calledOnce).to.be.false;
 		});
 	});
 });
